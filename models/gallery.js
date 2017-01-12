@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const gallerySchema = mongoose.Schema({
-  available: String,
-  file: String,
+  name: String,
+  string: String,
+  img: String,
+  location: String,
   lat: String,
-  lng: String,
-  postcode: String,
-  location: String
+  lng: String
 });
 
 module.exports = mongoose.model('Gallery', gallerySchema);

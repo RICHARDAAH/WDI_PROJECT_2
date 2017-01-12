@@ -1,8 +1,16 @@
-body {
-  background-color: #FF9000;
+h1 {
+  color: #EEEEEE;
+  font-family: 'Michroma' sans-serif;
+  font-size: 70px;
+  text-align: center;
+  padding-top: 100px;
 }
 
-#slideshow {
+
+body {
+  background-color: #212121;
+  background-image:
+  #slideshow {
     margin: 50px auto;
     position: relative;
     width: 599px;
@@ -22,4 +30,7 @@ body {
 img {
   height: 100%;
   width: 100%;
+  opacity: 0.1;
+  filter: alpha(opacity=50);
+}
 }
