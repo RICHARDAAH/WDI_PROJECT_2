@@ -17,6 +17,17 @@ body {
     height: 350px;
     padding: 10px;
    /*box-shadow: 0 0 20px rgba(0,0,0,0.4);*/
+
+   footer {
+     text-align: center;
+     color: #E0E0E0;
+     font-family: 'Michroma' sans-serif;
+     position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       height:100px;
+   }
 }
 
 #slideshow > div {
@@ -32,16 +43,4 @@ img {
   width: 100%;
   opacity: 0.1;
   filter: alpha(opacity=30);
-}
-}
-
-footer {
-  text-align: center;
-  color: #E0E0E0;
-  font-family: 'Michroma' sans-serif;
-  position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height:100px;
 }
