@@ -1,1 +1,1 @@
-"use strict";console.log("hey there");
+"use strict";function signUp(){document.getElementById("form1").innerHTML="{<b>You have now signed up!</b>}"}console.log("hey there"),$(document).ready;
