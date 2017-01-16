@@ -1,6 +1,6 @@
 const mongoose      = require('mongoose');
 
-const databaseUrl   = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/';
+const databaseUrl   = process.env.MONGOLAB_URI || 'mongodb://localhost/galleries';
 mongoose.connect(databaseUrl);
 
 const Gallery      = require('../models/gallery');

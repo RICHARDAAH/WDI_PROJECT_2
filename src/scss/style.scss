@@ -6,6 +6,16 @@ h1 {
   padding-top: 120px;
 }
 
+body {
+  margin: 0;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
 
 body {
   background-color: #212121;
@@ -38,6 +48,10 @@ body {
   text-align: right;
   float: right;
   padding-top: 70px;
+}
+
+label {
+  display: block;
 }
 
 footer {

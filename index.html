@@ -11,78 +11,55 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS6aR9Ini0ffsm6TmMnX3u3GWRVTadsbI" charset="utf-8"></script>
   <script src="/js/app.js" charset="utf-8"></script>
 </head>
-
 <body>
-  <h1>Culture Find</h1><br>
-
-  <div class="forms">
-    <div class="form1">
-      <form>
-        <h4>Sign up!</h4>
-        First name: <br><input type="text" name="firstname"><br>
-        Last name:  <br><input type="text" name="lastname"><br>
-        Email:      <br><input type="text" name="Email"><br>
-        Username:  <br><input type="text" name="Email"><br>
-        Password:   <br><input type="password" name="psw"><br>
-        <br>
-     <input type="button" onclick="form1()" value="Sign Up!">
-   </form>
-    </div>
-
-    <div class="form2">
-      <form>
-        <h4>Login.</h4>
-        Username:  <br><input type="text" name="Email"><br>
-        Password:   <br><input type="password" name="psw"><br>
-        <br>
-        <input type="Submit" value="Submit">
-      </form>
-    </div>
-  </div>
-
   <div id="backimage">
     <div>
       <img src="images/1.jpg">
     </div>
-    <!-- <div>
-      <img src="images/2.jpg">
-    </div>
-    <div>
-      <img src="images/3.jpg">
-    </div>
-    <div>
-      <img src="images/4.jpg">
-    </div>
-    <div>
-      <img src="images/5.jpg">
-    </div>
-    <div>
-      <img src="images/6.jpg">
-    </div>
-    <div>
-      <img src="images/7.jpg">
-    </div>
-    <div>
-      <img src="images/8.jpg">
-    </div>
-    <div>
-      <img src="images/9.jpg">
-    </div>
-    <div>
-      <img src="images/10.jpg">
-    </div>
-    <div>
-      <img src="images/11.jpg">
-    </div>
-    <div>
-      <img src="images/12.jpg">
-    </div>
-    <div>
-      <img src="images.13.jpg">
-    </div> -->
   </div>
-  <footer>
-    By RAAH &#169;
-  </footer>
+
+  <section class="loggedOut">
+    <h1>Culture Find</h1>
+    <div class="forms">
+      <div class="form1">
+        <form id="signup">
+          <h4>Sign up!</h4>
+          <label>First name:</label>
+          <input type="text" name="user[firstName]">
+          <label>Last name:</label>
+          <input type="text" name="user[lastName]">
+          <label>Email:</label>
+          <input type="text" name="user[email]">
+          <label>Username:</label>
+          <input type="text" name="user[username]">
+          <label>Password:</label>
+          <input type="password" name="user[password]">
+          <label>Password confirmation:</label>
+          <input type="password" name="user[passwordConfirmation]">
+          <input type="submit" value="Sign Up!">
+        </form>
+      </div>
+
+      <div class="form2">
+        <form id="login">
+          <h4>Login.</h4>
+          <label>Email:</label>
+          <input type="text" name="email">
+          <label>Password:</label>
+          <input type="password" name="password">
+          <input type="submit" value="Enter">
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="loggedIn">
+    <div id="map-canvas">
+
+    </div>
+  </section>
+
+  <!-- <footer>
+  By RAAH &#169;
+</footer> -->
 </body>
 </html>

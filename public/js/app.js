@@ -1,1 +1,1 @@
-"use strict";function signUp(){document.getElementById("form1").innerHTML="{<b>You have now signed up!</b>}"}console.log("hey there"),$(document).ready;
+"use strict";function start(){$("#login").on("submit",function(t){t.preventDefault(),$.ajax({method:"POST",url:"http://localhost:3000/api/login",data:$(this).serialize()}).done(function(t){console.log(t)})}),$("#signup").on("submit",function(t){t.preventDefault(),console.log("#signup"),$.ajax({method:"POST",url:"http://localhost:3000/api/register",data:$(this).serialize()}).done(function(t){console.log(t)})})}$(start);
