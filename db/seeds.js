@@ -20,18 +20,18 @@ gallery1.save((err, gallery) => {
   return console.log(`${gallery.name} was saved`);
 });
 
-const gallery2     = new Gallery({
-  name: 'Lawrence Alkin Galley',
-  string: 'Lawrence+Alkin+Gallery',
-  img: 'images/lawrencealkin.jpg',
-  lat: '51.5154621',
-  lng: '-0.1450903'
-});
-
-gallery2.save((err, gallery) => {
-  if(err) return console.log(err);
-  return console.log(`${gallery.name} was saved`);
-});
+// const gallery2     = new Gallery({
+//   name: 'Lawrence Alkin Galley',
+//   string: 'Lawrence+Alkin+Gallery',
+//   img: 'images/lawrencealkin.jpg',
+//   lat: '51.5154621',
+//   lng: '-0.1450903'
+// });
+//
+// gallery2.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
 
 const gallery3     = new Gallery({
   name: 'South London Gallery',
@@ -71,7 +71,7 @@ gallery5.save((err, gallery) => {
   if(err) return console.log(err);
   return console.log(`${gallery.name} was saved`);
 });
-//
+
 // const gallery6     = new Gallery({
 //   name: 'Castle Fine Art',
 //   string: 'Castle+Fine+Art',

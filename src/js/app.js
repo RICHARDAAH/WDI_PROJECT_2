@@ -83,7 +83,8 @@ function mapSetup() {
   const mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng(51.506178,-0.088369),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [{'featureType': 'all','elementType': 'geometry','stylers': [{'color': '#1d2c4d'}]},{'featureType': 'all','elementType': 'labels.text.fill','stylers': [{'color': '#8ec3b9'}]},{'featureType': 'all','elementType': 'labels.text.stroke','stylers': [{'color': '#1a3646'}]},{'featureType': 'administrative','elementType': 'geometry.fill','stylers': [{'color': '#0e1626'}]},{'featureType': 'administrative.country','elementType': 'geometry.stroke','stylers': [{'color': '#4b6878'}]},{'featureType': 'administrative.province','elementType': 'geometry.stroke','stylers': [{'color': '#4b6878'}]},{'featureType': 'administrative.land_parcel','elementType': 'labels.text.fill','stylers': [{'color': '#64779e'}]},{'featureType': 'landscape','elementType': 'geometry.fill','stylers': [{'color': '#353535'}]},{'featureType': 'landscape.man_made','elementType': 'geometry.stroke','stylers': [{'color': '#334e87'}]},{'featureType': 'landscape.natural','elementType': 'geometry','stylers': [{'color': '#3e3e3e'}]},{'featureType': 'poi','elementType': 'geometry','stylers': [{'color': '#3e3e3e'}]},{'featureType': 'poi','elementType': 'labels.text.fill','stylers': [{'color': '#6f9ba5'}]},{'featureType': 'poi','elementType': 'labels.text.stroke','stylers': [{'color': '#1d2c4d'}]},{'featureType': 'poi.park','elementType': 'geometry.fill','stylers': [{'color': '#3e3e3e'}]},{'featureType': 'poi.park','elementType': 'labels.text.fill','stylers': [{'color': '#3c7680'}]},{'featureType': 'road','elementType': 'geometry','stylers': [{'color': '#29292a'}]},{'featureType': 'road','elementType': 'labels.text.fill','stylers': [{'color': '#98a5be'}]},{'featureType': 'road','elementType': 'labels.text.stroke','stylers': [{'color': '#1d2c4d'}]},{'featureType': 'road.highway','elementType': 'geometry','stylers': [{'color': '#1175ba'}]},{'featureType': 'road.highway','elementType': 'geometry.stroke','stylers': [{'color': '#0d5a8e'}]},{'featureType': 'road.highway','elementType': 'labels.text.fill','stylers': [{'color': '#b0d5ce'}]},{'featureType': 'road.highway','elementType': 'labels.text.stroke','stylers': [{'color': '#2b455e'}]},{'featureType': 'transit','elementType': 'labels.text.fill','stylers': [{'color': '#98a5be'}]},{'featureType': 'transit','elementType': 'labels.text.stroke','stylers': [{'color': '#1d2c4d'}]},{'featureType': 'transit.line','elementType': 'geometry.fill','stylers': [{'color': '#162832'}]},{'featureType': 'transit.station','elementType': 'geometry','stylers': [{'color': '#283c51'}]},{'featureType': 'water','elementType': 'geometry','stylers': [{'color': '#0e1626'}]},{'featureType': 'water','elementType': 'labels.text.fill','stylers': [{'color': '#4e6d70'}]}]
   };
 
   map = new google.maps.Map(canvas, mapOptions);
@@ -109,7 +110,7 @@ function createMarkerForGallery(gallery) {
     position: latlng,
     map: map,
     animation: google.maps.Animation.DROP,
-    icon: 'images/palette.png'  
+    icon: 'images/palette.png'
   });
 
   addInfoWindowForGallery(gallery, marker);
@@ -120,7 +121,7 @@ function addInfoWindowForGallery(gallery, marker) {
     if (typeof infoWindow !== 'undefined') infoWindow.close();
 
     infoWindow = new google.maps.InfoWindow({
-      content: `<img class="infoImage" src="../${gallery.img}"><p>${ gallery.name }</p>`
+      content: `<img class=infoImage" src="../${gallery.img}"><p>${ gallery.name }</p>`
     });
 
     infoWindow.open(map, marker);
