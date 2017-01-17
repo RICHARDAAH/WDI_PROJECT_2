@@ -20,35 +20,30 @@
   <section class="loggedOut">
     <h1>Culture Find</h1>
     <div class="forms">
-      <div class="form1">
-        <form id="signup">
-          <h4>Sign up!</h4>
-          <label>First name:</label>
-          <input type="text" name="user[firstName]">
-          <label>Last name:</label>
-          <input type="text" name="user[lastName]">
-          <label>Email:</label>
-          <input type="text" name="user[email]">
-          <label>Username:</label>
-          <input type="text" name="user[username]">
-          <label>Password:</label>
-          <input type="password" name="user[password]">
-          <label>Password confirmation:</label>
-          <input type="password" name="user[passwordConfirmation]">
-          <input type="submit" value="Sign Up!">
-        </form>
-      </div>
-
-      <div class="form2">
-        <form id="login">
-          <h4>Login.</h4>
-          <label>Email:</label>
-          <input type="text" name="email">
-          <label>Password:</label>
-          <input type="password" name="password">
-          <input type="submit" value="Enter">
-        </form>
-      </div>
+      <form id="signup" class="form-left">
+        <h4>Sign up!</h4>
+        <label>First name:</label>
+        <input type="text" name="user[firstName]">
+        <label>Last name:</label>
+        <input type="text" name="user[lastName]">
+        <label>Email:</label>
+        <input type="text" name="user[email]">
+        <label>Username:</label>
+        <input type="text" name="user[username]">
+        <label>Password:</label>
+        <input type="password" name="user[password]">
+        <label>Password confirmation:</label>
+        <input type="password" name="user[passwordConfirmation]">
+        <input type="submit" value="Sign Up!">
+      </form>
+      <form id="login" class="form-right">
+        <h4>Login.</h4>
+        <label>Email:</label>
+        <input type="text" name="email">
+        <label>Password:</label>
+        <input type="password" name="password">
+        <input type="submit" value="Enter">
+      </form>
     </div>
   </section>
   <section class="loggedIn">
@@ -62,7 +57,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brand</a>
+          <a class="navbar-brand" href="#">Culture Find</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

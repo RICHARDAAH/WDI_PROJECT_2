@@ -61,6 +61,10 @@ function getLoggedIn(data) {
   }
 }
 
+function setRequestHeader(xhr) {
+  return xhr.setRequestHeader('Authorization', `Bearer ${getToken()}`);
+}
+
 function setToken(token){
   return window.localStorage.setItem('token', token);
 }
@@ -87,7 +91,10 @@ function mapSetup() {
 }
 
 function getGalleries() {
-  $.get('http://localhost:3000/api/galleries').done(loopThroughGalleries);
+  $.get({
+    url: 'http://localhost:3000/api/galleries',
+    beforeSend: setRequestHeader
+  }).done(loopThroughGalleries);
 }
 
 function loopThroughGalleries(data) {

@@ -1,6 +1,7 @@
 h1 {
+  color: #E0E0E0;
   font-family: 'Michroma' sans-serif;
-  // font-size: 70px;
+  font-size: 70px;
   text-align: center;
   padding-top: 120px;
 }
@@ -24,36 +25,40 @@ body {
   margin: 0 auto;
 }
 
-.form1 {
-  color: #E0E0E0;
+form {
+
+  label, h4 {
+    color: #E0E0E0;
+  }
+
   font-family: 'Michroma' sans-serif;
-  text-align: left;
-  float: left;
   padding-top: 70px;
 }
 
-.form2 {
-  color: #E0E0E0;
-  font-family: 'Michroma' sans-serif;
+.form-left {
+  text-align: left;
+  float: left;
+}
+
+.form-right {
   text-align: right;
   float: right;
-  padding-top: 70px;
 }
 
 label {
   display: block;
 }
 
-footer {
-  text-align: center;
-  color: #E0E0E0;
-  font-family: 'Michroma' sans-serif;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height:100px;
-}
+// footer {
+//   text-align: center;
+//   color: #E0E0E0;
+//   font-family: 'Michroma' sans-serif;
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   height:100px;
+// }
 
 #backimage{
   z-index: -1;
