@@ -108,7 +108,8 @@ function createMarkerForGallery(gallery) {
   const marker = new google.maps.Marker({
     position: latlng,
     map: map,
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
+    icon: 'images/palette.png'  
   });
 
   addInfoWindowForGallery(gallery, marker);
@@ -124,6 +125,6 @@ function addInfoWindowForGallery(gallery, marker) {
 
     infoWindow.open(map, marker);
     map.setCenter(marker.getPosition());
-    map.setZoom(15);
+    map.setZoom(12);
   });
 }
