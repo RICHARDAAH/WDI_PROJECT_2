@@ -16,6 +16,7 @@ body {
   margin: 0 auto;
 }
 
+
 body {
   background-color: #212121;
 }
@@ -81,7 +82,9 @@ footer {
 }
 
 .infoImage {
-  max-height: 100px;
+  height: 100px !important;
+  margin: 0 auto;
+  display: block;
 }
 
 .col-sm-10 {

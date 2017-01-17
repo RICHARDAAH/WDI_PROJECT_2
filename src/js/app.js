@@ -121,7 +121,11 @@ function addInfoWindowForGallery(gallery, marker) {
     if (typeof infoWindow !== 'undefined') infoWindow.close();
 
     infoWindow = new google.maps.InfoWindow({
-      content: `<img class=infoImage" src="../${gallery.img}"><p>${ gallery.name }</p>`
+      content: `<img class=infoImage" src="../${gallery.img}" width="200px">
+      <p>${ gallery.name }</p>`
+      // maxWidth: 120
+      // maxHeight: 50
+      
     });
 
     infoWindow.open(map, marker);

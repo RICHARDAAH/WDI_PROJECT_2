@@ -11,8 +11,8 @@ const gallery1     = new Gallery({
   name: 'Whitechapel Gallery',
   string: 'Whitechapel+Gallery',
   img: 'images/whitechapel.jpg',
-  lat: '51.5160375',
-  lng: '-0.0722831'
+  lat: 51.5160375,
+  lng: -0.0722831
 });
 
 gallery1.save((err, gallery) => {
@@ -20,25 +20,25 @@ gallery1.save((err, gallery) => {
   return console.log(`${gallery.name} was saved`);
 });
 
-// const gallery2     = new Gallery({
-//   name: 'Lawrence Alkin Galley',
-//   string: 'Lawrence+Alkin+Gallery',
-//   img: 'images/lawrencealkin.jpg',
-//   lat: '51.5154621',
-//   lng: '-0.1450903'
-// });
-//
-// gallery2.save((err, gallery) => {
-//   if(err) return console.log(err);
-//   return console.log(`${gallery.name} was saved`);
-// });
+const gallery2     = new Gallery({
+  name: 'Camden Arts centre',
+  string: 'Camden+Arts+Centre',
+  img: 'images/camden.jpg',
+  lat: 51.551146,
+  lng: -0.2185403
+});
+
+gallery2.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
 
 const gallery3     = new Gallery({
   name: 'South London Gallery',
   string: 'South+London+Gallery',
   img: 'images/southlondongallery.jpg',
-  lat: '51.4741624',
-  lng: '-0.0972284'
+  lat: 51.4741624,
+  lng: -0.0972284
 });
 
 gallery3.save((err, gallery) => {
@@ -50,8 +50,8 @@ const gallery4     = new Gallery({
   name: 'Eames Fine Art Gallery',
   string: 'Eames+Fine+Art+Gallery',
   img: 'images/eamesfineart.jpg',
-  lat: '51.5017655',
-  lng: '-0.0999106'
+  lat: 51.5017655,
+  lng: -0.0999106
 });
 
 gallery4.save((err, gallery) => {
@@ -63,8 +63,8 @@ const gallery5     = new Gallery({
   name: 'Alan Cristia Gallery',
   string: 'Alan+Cristia+Gallery',
   img: 'images/alancristia.jpg',
-  lat: '51.5153338',
-  lng: '-0.1451775'
+  lat: 51.5153338,
+  lng: -0.1451775
 });
 
 gallery5.save((err, gallery) => {
@@ -72,54 +72,106 @@ gallery5.save((err, gallery) => {
   return console.log(`${gallery.name} was saved`);
 });
 
-// const gallery6     = new Gallery({
-//   name: 'Castle Fine Art',
-//   string: 'Castle+Fine+Art',
-//   img: 'images/castlefineart.jpg',
-//   lat: '51.5154595',
-//   lng: '-0.1450903'
-// });
-//
-// gallery6.save((err, gallery) => {
-//   if(err) return console.log(err);
-//   return console.log(`${gallery.name} was saved`);
-// });
-//
+const gallery6     = new Gallery({
+  name: 'Castle Fine Art',
+  string: 'Castle+Fine+Art',
+  img: 'images/castlefineart.jpg',
+  lat: 51.5154595,
+  lng: -0.1450903
+});
+
+gallery6.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery7     = new Gallery({
+  name: 'Tate Modern',
+  string: 'Tate+Modern',
+  img: 'images/tate.jpg',
+  lat: 51.5066484,
+  lng: -0.0992315
+});
+
+gallery7.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery8     = new Gallery({
+  name: 'Guildhall Art Gallery',
+  string: 'Guildhall+Art+Gallery',
+  img: 'images/guildhall.jpg',
+  lat: 51.5058687,
+  lng: -0.1039679
+});
+
+gallery8.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery9     = new Gallery({
+  name: 'Barbican Art Gallery',
+  string: 'Barbican+Art+Gallery',
+  img: 'images/barbican.jpg',
+  lat: 51.5094322,
+  lng: -0.1750592
+});
+
+gallery9.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery10     = new Gallery({
+  name: 'Tate Britain',
+  string: 'Tate+Britain',
+  img: 'images/tatebrit.jpg',
+  lat: 51.5058687,
+  lng: -0.1039679
+});
+
+gallery10.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery11     = new Gallery({
+  name: 'Saatchi Gallery',
+  string: 'Saatchi+Gallery',
+  img: 'images/saatchi.jpg',
+  lat: 51.4906972,
+  lng: -0.1937354
+});
+
+gallery11.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery12     = new Gallery({
+  name: 'Royal Academy of Arts',
+  string: 'Royal+Academy+of+Arts',
+  img: 'images/royalacademy.jpg',
+  lat: 51.5094426,
+  lng: -0.1748875
+});
+
+gallery12.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
 // const gallery7     = new Gallery({
-//   name: 'Tate Modern',
-//   string: 'Tate+Modern',
-//   img: 'images/tate.jpg',
-//   lat: '51.5066484',
-//   lng: '-0.0992315'
+//   name: '',
+//   string: '',
+//   img: '',
+//   lat: '',
+//   lng: ''
 // });
 //
 // gallery7.save((err, gallery) => {
-//   if(err) return console.log(err);
-//   return console.log(`${gallery.name} was saved`);
-// });
-//
-// const gallery8     = new Gallery({
-//   name: 'Guildhall Art Gallery',
-//   string: 'Guildhall+Art+Gallery',
-//   img: 'images/guildhall.jpg',
-//   lat: '51.487113',
-//   lng: '-0.1938255'
-// });
-//
-// gallery8.save((err, gallery) => {
-//   if(err) return console.log(err);
-//   return console.log(`${gallery.name} was saved`);
-// });
-//
-// const gallery9     = new Gallery({
-//   name: 'Barbican Art Gallery',
-//   string: 'Barbican+Art+Gallery',
-//   img: 'images/barbican.jpg',
-//   lat: '51.487113',
-//   lng: '-0.1938255'
-// });
-//
-// gallery9.save((err, gallery) => {
 //   if(err) return console.log(err);
 //   return console.log(`${gallery.name} was saved`);
 // });
@@ -136,7 +188,7 @@ gallery5.save((err, gallery) => {
 //   if(err) return console.log(err);
 //   return console.log(`${gallery.name} was saved`);
 // });
-//
+
 // const gallery7     = new Gallery({
 //   name: '',
 //   string: '',
