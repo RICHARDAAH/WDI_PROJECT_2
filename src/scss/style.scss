@@ -49,16 +49,16 @@ label {
   display: block;
 }
 
-// footer {
-//   text-align: center;
-//   color: #E0E0E0;
-//   font-family: 'Michroma' sans-serif;
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   height:100px;
-// }
+footer {
+  text-align: right;
+  color: #E0E0E0;
+  font-family: 'Michroma' sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-right: 20px;
+}
 
 #backimage{
   z-index: -1;
