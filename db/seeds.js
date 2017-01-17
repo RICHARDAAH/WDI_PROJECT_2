@@ -71,16 +71,81 @@ gallery5.save((err, gallery) => {
   if(err) return console.log(err);
   return console.log(`${gallery.name} was saved`);
 });
+//
+// const gallery6     = new Gallery({
+//   name: 'Castle Fine Art',
+//   string: 'Castle+Fine+Art',
+//   img: 'images/castlefineart.jpg',
+//   lat: '51.5154595',
+//   lng: '-0.1450903'
+// });
+//
+// gallery6.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
+//
+// const gallery7     = new Gallery({
+//   name: 'Tate Modern',
+//   string: 'Tate+Modern',
+//   img: 'images/tate.jpg',
+//   lat: '51.5066484',
+//   lng: '-0.0992315'
+// });
+//
+// gallery7.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
+//
+// const gallery8     = new Gallery({
+//   name: 'Guildhall Art Gallery',
+//   string: 'Guildhall+Art+Gallery',
+//   img: 'images/guildhall.jpg',
+//   lat: '51.487113',
+//   lng: '-0.1938255'
+// });
+//
+// gallery8.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
+//
+// const gallery9     = new Gallery({
+//   name: 'Barbican Art Gallery',
+//   string: 'Barbican+Art+Gallery',
+//   img: 'images/barbican.jpg',
+//   lat: '51.487113',
+//   lng: '-0.1938255'
+// });
+//
+// gallery9.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
 
-const gallery6     = new Gallery({
-  name: 'Castle Fine Art',
-  string: 'Castle+Fine+Art',
-  img: 'images/castlefineart.jpg',
-  lat: '51.5154595',
-  lng: '-0.1450903'
-});
-
-gallery6.save((err, gallery) => {
-  if(err) return console.log(err);
-  return console.log(`${gallery.name} was saved`);
-});
+// const gallery7     = new Gallery({
+//   name: '',
+//   string: '',
+//   img: '',
+//   lat: '',
+//   lng: ''
+// });
+//
+// gallery7.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
+//
+// const gallery7     = new Gallery({
+//   name: '',
+//   string: '',
+//   img: '',
+//   lat: '',
+//   lng: ''
+// });
+//
+// gallery7.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });

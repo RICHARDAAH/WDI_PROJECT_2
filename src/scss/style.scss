@@ -41,7 +41,7 @@ form {
 }
 
 .form-right {
-  text-align: right;
+  text-align: left;
   float: right;
 }
 
@@ -78,4 +78,12 @@ label {
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
+}
+
+.infoImage {
+  max-height: 250px;
+}
+
+.col-sm-10 {
+  width: 93.33333333%;
 }
