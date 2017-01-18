@@ -125,7 +125,6 @@ function addInfoWindowForGallery(gallery, marker) {
       <p>${ gallery.name }</p>`
       // maxWidth: 120
       // maxHeight: 50
-      
     });
 
     infoWindow.open(map, marker);

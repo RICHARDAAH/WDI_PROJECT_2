@@ -163,18 +163,57 @@ gallery12.save((err, gallery) => {
   return console.log(`${gallery.name} was saved`);
 });
 
-// const gallery7     = new Gallery({
-//   name: '',
-//   string: '',
-//   img: '',
-//   lat: '',
-//   lng: ''
-// });
-//
-// gallery7.save((err, gallery) => {
-//   if(err) return console.log(err);
-//   return console.log(`${gallery.name} was saved`);
-// });
+const gallery13     = new Gallery({
+  name: 'Serpintine Gallery',
+  string: 'Serpintine+Gallery',
+  img: 'images/serpintine.jpg',
+  lat: 51.5094218,
+  lng: -0.1752309
+});
+
+gallery13.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery14     = new Gallery({
+  name: 'Pump House Gallery',
+  string: 'Pump+House+Gallery',
+  img: 'images/pump.jpg',
+  lat: 51.5094218,
+  lng: -0.1752309
+});
+
+gallery14.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery15     = new Gallery({
+  name: 'The Queens Gallery',
+  string: 'The+Queens+Gallery',
+  img: 'images/queens.jpg',
+  lat: 51.5094218,
+  lng: -0.1752309
+});
+
+gallery15.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
+
+const gallery16    = new Gallery({
+  name: 'Newport Street Gallery',
+  string: 'Newport+Street+Gallery',
+  img: 'images.newport.jpg',
+  lat: 51.5094218,
+  lng: -0.1752309
+});
+
+gallery16.save((err, gallery) => {
+  if(err) return console.log(err);
+  return console.log(`${gallery.name} was saved`);
+});
 
 // const gallery7     = new Gallery({
 //   name: '',
