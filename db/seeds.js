@@ -205,7 +205,7 @@ gallery15.save((err, gallery) => {
 const gallery16    = new Gallery({
   name: 'Newport Street Gallery',
   string: 'Newport+Street+Gallery',
-  img: 'images.newport.jpg',
+  img: 'images/newport.jpg',
   lat: 51.5094218,
   lng: -0.1752309
 });
