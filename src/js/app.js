@@ -33,7 +33,7 @@ function login(e){
 
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:3000/api/login',
+    url: 'http://window.location.origin/login',
     data: $(this).serialize()
   }).done(getLoggedIn);
 }
@@ -43,7 +43,7 @@ function register(e){
 
   $.ajax({
     method: 'POST',
-    url: 'http://localhost:3000/api/register',
+    url: 'http://window.location.origin/register',
     data: $(this).serialize()
   }).done(getLoggedIn);
 }
