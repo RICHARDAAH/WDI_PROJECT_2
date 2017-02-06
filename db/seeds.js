@@ -240,3 +240,16 @@ gallery16.save((err, gallery) => {
 //   if(err) return console.log(err);
 //   return console.log(`${gallery.name} was saved`);
 // });
+
+// const gallery7     = new Gallery({
+//   name: '',
+//   string: '',
+//   img: '',
+//   lat: '',
+//   lng: ''
+// });
+//
+// gallery7.save((err, gallery) => {
+//   if(err) return console.log(err);
+//   return console.log(`${gallery.name} was saved`);
+// });
