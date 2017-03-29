@@ -309,7 +309,24 @@ function mapSetup() {
   };
 
   map = new google.maps.Map(canvas, mapOptions);
-  getGalleries();
+  // getGalleries();
+  var request = {location: mapOptions.center,
+    radius: '2000',
+    types: ['art_gallery', 'museum']
+  };
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
+  console.log(request);
+}
+
+function callback(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK){
+    for(var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+      console.log(results[i]);
+    }
+  }
+
 }
 
 function getGalleries() {
@@ -321,29 +338,29 @@ function getGalleries() {
 
 function loopThroughGalleries(data) {
   $.each(data.galleries, (index, gallery) => {
-    createMarkerForGallery(gallery);
+    createMarker(gallery);
   });
 }
 
-function createMarkerForGallery(gallery) {
-  const latlng = new google.maps.LatLng(gallery.lat, gallery.lng);
+function createMarker(place) {
+  // const latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
   const marker = new google.maps.Marker({
-    position: latlng,
+    position: place.geometry.location,
     map: map,
     animation: google.maps.Animation.DROP,
     icon: 'images/palette.png'
   });
 
-  addInfoWindowForGallery(gallery, marker);
+  addInfoWindow(place, marker);
 }
 
-function addInfoWindowForGallery(gallery, marker) {
+function addInfoWindow(place, marker) {
   google.maps.event.addListener(marker, 'click', () => {
     if (typeof infoWindow !== 'undefined') infoWindow.close();
 
     infoWindow = new google.maps.InfoWindow({
-      content: `<img class=infoImage" src="../${gallery.img}" width="200px">
-      <p>${ gallery.name }</p>`
+      content: `<img class=infoImage" src="../${place.img}" width="200px">
+      <p>${ place.name }</p>`
       // maxWidth: 120
       // maxHeight: 50
     });
