@@ -357,10 +357,31 @@ function createMarker(place) {
 function addInfoWindow(place, marker) {
   google.maps.event.addListener(marker, 'click', () => {
     if (typeof infoWindow !== 'undefined') infoWindow.close();
+    // var imgUrl=place.photos[0].getUrl();
+    // console.log(place.photos[0].getUrl());
+    var openNow;
+    if (place.opening_hours.open_now) {
+      openNow = 'Yes';
+    } else {
+      openNow = 'No';
+    }
+    place.iconsList = [];
+    for (var i = 0; i < place.types.length; i++) {
+      switch (place.types[i]) {
+        case 'restaurant':
+        case 'cafe':
+        case 'food':
+          place.iconsList.push('<i class="material-icons">restaurant</i>');
+        case 'museum':
+          place.iconsList.push('<i class="material-icons">account_balance</i>');
+        case 'art_gallery':
+          place.iconsList.push('<i class="material-icons">brush</i>');
+      }
+    }
 
     infoWindow = new google.maps.InfoWindow({
-      content: `<img class=infoImage" src="../${place.img}" width="200px">
-      <p>${ place.name }</p>`
+      content: `<img class=infoImage" src="../${place.img}" width="200px"> <p>`+place.iconsList.join('')+`</p> 
+      <p>${ place.name }</p> <p>Open now: ${ openNow }</p> <p>Rating: ${ place.rating }</p> <p>Address: ${ place.vicinity }</p>`
       // maxWidth: 120
       // maxHeight: 50
     });
