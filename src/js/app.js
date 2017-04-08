@@ -310,26 +310,39 @@ function mapSetup() {
   const canvas = document.getElementById('map-canvas');
 
 
-  map = new google.maps.Map(canvas, mapOptions);
+  window.map = new google.maps.Map(canvas, mapOptions);
   // getGalleries();
   var request = {location: mapOptions.center,
     radius: '2000',
-    types: ['art_gallery', 'museum']
+    types: ['art_gallery', 'museum', 'subway_station']
   };
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, nearByCallback);
-  console.log(request);
+  window.service = new google.maps.places.PlacesService(window.map);
+  window.service.nearbySearch(request, nearByCallback);
+  // service.getDetails({
+  //   placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+  // },function(place,status) {
+  //   if(status === google.maps.places.PlacesServiceStatus.OK){
+  //     console.log(place);
+  //   }
+  // });
 }
 
 function nearByCallback(results, status){
-  if (status == google.maps.places.PlacesServiceStatus.OK){
+  if (status === google.maps.places.PlacesServiceStatus.OK){
     for(var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       console.log(results[i]);
+      window.service.getDetails({
+        placeId: results[i].place_id
+      },function(place,status) {
+        if(status === google.maps.places.PlacesServiceStatus.OK){
+          console.log(place);
+        }
+      });
     }
   }
 }
-
+// getPlaceDetails('Hello');
 // function getGalleries() {
 //   $.get({
 //     url: 'http://localhost:3000/api/galleries',
@@ -357,17 +370,17 @@ function createMarker(place) {
 }
 
 function getDetailsCallback(place, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK){
+  if (status === google.maps.places.PlacesServiceStatus.OK){
     console.log(place.formatted_address);
   }
 }
 
 function addInfoWindow(place, marker) {
   google.maps.event.addListener(marker, 'click', () => {
-    const canvas = document.getElementById('map-canvas');
-    map = new google.maps.Map(canvas, mapOptions);
-    var service = new google.maps.places.PlacesService(map);
-    service.getDetails({placeId: place.place_id,getDetailsCallback});
+    // const canvas = document.getElementById('map-canvas');
+    // map = new google.maps.Map(canvas, mapOptions);
+    // var service = new google.maps.places.PlacesService(map);
+    // service.getDetails({placeId: place.place_id,getDetailsCallback});
     if (typeof infoWindow !== 'undefined') infoWindow.close();
     // var imgUrl=place.photos[0].getUrl();
     // console.log(place.photos[0].getUrl());
@@ -408,3 +421,17 @@ function addInfoWindow(place, marker) {
     map.setZoom(12);
   });
 }
+
+//Send info about check boxes to app.js(museums/art galleries) Add or remove markers to spec.
+
+//For the search bar we can a radius for the users prefrence for loction. ie nearest place.
+
+//add tube stations on the map.
+
+// Style info windows
+
+//Add more icons of the default 20 objects to max ammount.
+
+// add different icons for the objects on the map
+
+// for the remainder objects with food cafe restaurants to add food icon in the window
