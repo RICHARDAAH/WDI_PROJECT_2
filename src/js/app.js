@@ -3,6 +3,7 @@ $(start);
 var map;
 var infoWindow;
 var google = window.google;
+var markers = [];
 
 const mapOptions = {
   zoom: 12,
@@ -308,23 +309,13 @@ function removeToken(){
 
 function mapSetup() {
   const canvas = document.getElementById('map-canvas');
-
-
   window.map = new google.maps.Map(canvas, mapOptions);
-  // getGalleries();
   var request = {location: mapOptions.center,
     radius: '2000',
     types: ['art_gallery', 'museum', 'subway_station']
   };
   window.service = new google.maps.places.PlacesService(window.map);
   window.service.nearbySearch(request, nearByCallback);
-  // service.getDetails({
-  //   placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-  // },function(place,status) {
-  //   if(status === google.maps.places.PlacesServiceStatus.OK){
-  //     console.log(place);
-  //   }
-  // });
 }
 
 function nearByCallback(results, status){
@@ -357,16 +348,36 @@ function nearByCallback(results, status){
 // }
 
 function createMarker(place) {
-  // const latlng = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+  var icon;
+  if (place.types.indexOf('museum') > -1) {
+    icon = 'images/museum.png';
+  }
+  if (place.types.indexOf('art_gallery') > -1) {
+    icon = 'images/galleries.png';
+  }
+  if (place.types.indexOf('subway_station') > -1) {
+    icon = 'images/station.png';
+  }
   const marker = new google.maps.Marker({
     position: place.geometry.location,
     map: map,
     animation: google.maps.Animation.DROP,
-    icon: 'images/palette.png'
-    // icon: imgUrl
+    icon: icon,
+    types: place.types
   });
+  markers.push(marker);
 
   addInfoWindow(place, marker);
+}
+function removeMarkers(removeTypes){
+  markers.map(function(marker){
+    marker.setMap(map);
+    marker.types.map(function(type){
+      if (removeTypes.indexOf(type) > -1){
+        marker.setMap(null);
+      }
+    });
+  });
 }
 
 function getDetailsCallback(place, status) {
@@ -421,10 +432,17 @@ function addInfoWindow(place, marker) {
     map.setZoom(12);
   });
 }
+function getUncheckedBoxes(){
+  var checkBoxes = document.getElementsByName('category');
+  var uncheckedBoxes = [];
+  for (var i = 0; i < checkBoxes.length; i++) {
+    if (!checkBoxes[i].checked)
+      uncheckedBoxes.push(checkBoxes[i].value);
+  }
+  removeMarkers(uncheckedBoxes);
+  console.log(uncheckedBoxes);
+}
 
-//Send info about check boxes to app.js(museums/art galleries) Add or remove markers to spec.
-
-//For the search bar we can a radius for the users prefrence for loction. ie nearest place.
 
 //add tube stations on the map.
 
