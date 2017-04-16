@@ -6,7 +6,7 @@ var google = window.google;
 var markers = [];
 
 const mapOptions = {
-  zoom: 12,
+  zoom: 13,
   center: new google.maps.LatLng(51.506178,-0.088369),
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles:
@@ -291,10 +291,6 @@ function getLoggedIn(data) {
   }
 }
 
-// function setRequestHeader(xhr) {
-//   return xhr.setRequestHeader('Authorization', `Bearer ${getToken()}`);
-// }
-
 function setToken(token){
   return window.localStorage.setItem('token', token);
 }
@@ -311,15 +307,16 @@ function mapSetup() {
   const canvas = document.getElementById('map-canvas');
   window.map = new google.maps.Map(canvas, mapOptions);
   var request = {location: mapOptions.center,
-    radius: '2000',
+    radius: 1000,
     types: ['art_gallery', 'museum', 'subway_station']
   };
   window.service = new google.maps.places.PlacesService(window.map);
   window.service.nearbySearch(request, nearByCallback);
 }
 
-function nearByCallback(results, status){
+function nearByCallback(results, status, pagination){
   if (status === google.maps.places.PlacesServiceStatus.OK){
+    console.log(results.length);
     for(var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       console.log(results[i]);
@@ -327,25 +324,15 @@ function nearByCallback(results, status){
         placeId: results[i].place_id
       },function(place,status) {
         if(status === google.maps.places.PlacesServiceStatus.OK){
-          console.log(place);
         }
       });
     }
   }
+  if (pagination.hasNextPage){
+    sleep:2;
+    pagination.nextPage();
+  }
 }
-// getPlaceDetails('Hello');
-// function getGalleries() {
-//   $.get({
-//     url: 'http://localhost:3000/api/galleries',
-//     beforeSend: setRequestHeader
-//   }).done(loopThroughGalleries);
-// }
-
-// function loopThroughGalleries(data) {
-//   $.each(data.galleries, (index, gallery) => {
-//     createMarker(gallery);
-//   });
-// }
 
 function createMarker(place) {
   var icon;
@@ -388,24 +375,17 @@ function getDetailsCallback(place, status) {
 
 function addInfoWindow(place, marker) {
   google.maps.event.addListener(marker, 'click', () => {
-    // const canvas = document.getElementById('map-canvas');
-    // map = new google.maps.Map(canvas, mapOptions);
-    // var service = new google.maps.places.PlacesService(map);
-    // service.getDetails({placeId: place.place_id,getDetailsCallback});
     if (typeof infoWindow !== 'undefined') infoWindow.close();
-    // var imgUrl=place.photos[0].getUrl();
-    // console.log(place.photos[0].getUrl());
-    var openNow;
-    if (place.opening_hours.open_now) {
-      openNow = 'Yes';
-    } else {
-      openNow = 'No';
-    }
-    //TODO Why tate modern tags are mixed up (food/store)..
-    place.iconsList = place.types.map(type => {
-      if (place.name === 'Tate Modern') {
-        console.log(type);
+    if (place.opening_hours){
+
+      var openNow;
+      if (place.opening_hours.open_now) {
+        openNow = 'Yes';
+      } else {
+        openNow = 'No';
       }
+    }
+    place.iconsList = place.types.map(type => {
       switch (type) {
         case 'restaurant':
         case 'cafe':
@@ -420,16 +400,27 @@ function addInfoWindow(place, marker) {
     var iconsSet = new Set(place.iconsList);
     place.iconsList = [...iconsSet];
     var imgUrl = typeof place.photos !== 'undefined'? place.photos[0].getUrl({'maxWidth': 100,'maxHeight': 100}):'';
+    var imgTag = '';
+    if (imgUrl){
+      imgTag +=  `<img class=infoImage src="${imgUrl}" width="100px">`;
+    }
+    var openTag = '';
+    if (openNow) {
+      openTag += `<p>Open now: ${ openNow }</p>`;
+    }
+    var ratingTag = '';
+    if (place.rating){
+      ratingTag += `<p>Rating: ${ place.rating }</p>`;
+    }
     infoWindow = new google.maps.InfoWindow({
-      content: `<img class=infoImage" src="${imgUrl}" width="100px"> <p>`+place.iconsList.join('')+`</p>
-      <p>${ place.name }</p> <p>Open now: ${ openNow }</p> <p>Rating: ${ place.rating }</p> <p>Address: ${ place.vicinity }</p>`
+      content: imgTag +` <p>`+place.iconsList.join('')+`</p>
+      <p>${ place.name }</p> `+ openTag + ratingTag + ` <p>Address: ${ place.vicinity }</p>`
       // maxWidth: 120
       // maxHeight: 50
     });
 
     infoWindow.open(map, marker);
     map.setCenter(marker.getPosition());
-    map.setZoom(12);
   });
 }
 function getUncheckedBoxes(){
@@ -444,12 +435,9 @@ function getUncheckedBoxes(){
 }
 
 
-//add tube stations on the map.
 
-// Style info windows
+//address of subway stations
 
-//Add more icons of the default 20 objects to max ammount.
+// Style the info windows
 
-// add different icons for the objects on the map
-
-// for the remainder objects with food cafe restaurants to add food icon in the window
+// Write read me file
