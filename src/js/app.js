@@ -320,17 +320,19 @@ function nearByCallback(results, status, pagination){
     for(var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       console.log(results[i]);
-      window.service.getDetails({
-        placeId: results[i].place_id
-      },function(place,status) {
-        if(status === google.maps.places.PlacesServiceStatus.OK){
-        }
-      });
     }
   }
+  var numClicks = 1;
   if (pagination.hasNextPage){
-    sleep:2;
-    pagination.nextPage();
+    var moreButton = document.getElementById('load-more');
+    moreButton.addEventListener('click',function(){
+      if (numClicks === 2){
+        moreButton.disabled = true;
+      } else {
+        numClicks++;
+      }
+      pagination.nextPage();
+    });
   }
 }
 
@@ -441,3 +443,5 @@ function getUncheckedBoxes(){
 // Style the info windows
 
 // Write read me file
+
+// fix nav bar
