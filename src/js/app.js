@@ -417,8 +417,6 @@ function addInfoWindow(place, marker) {
     infoWindow = new google.maps.InfoWindow({
       content: imgTag +` <p>`+place.iconsList.join('')+`</p>
       <p>${ place.name }</p> `+ openTag + ratingTag + ` <p>Address: ${ place.vicinity }</p>`
-      // maxWidth: 120
-      // maxHeight: 50
     });
 
     infoWindow.open(map, marker);
@@ -436,9 +434,6 @@ function getUncheckedBoxes(){
   console.log(uncheckedBoxes);
 }
 
-
-
-//address of subway stations
 
 // Style the info windows
 

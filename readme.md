@@ -1,6 +1,6 @@
 # WDI Project 2 - Culture Find
 
-This is my second project for the WDI course. The timeline of this project was five days.
+This is my second project for the WDI course. The timeline of this project was six days.
 
 This project is designed to help users find museums, art galleries and nearby train stations in central London using Google Maps.
 It has a user management system where users have to sign up/login in order to use the services.
