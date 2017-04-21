@@ -11,7 +11,7 @@
 
   <!-- Latest compiled and minified CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -20,10 +20,7 @@
     <img src="images/12.jpg">
   </div>
   <section class="loggedOut">
-    <h1>Culture Find<svg fill="#E0E0E0" height="75" viewbox="0 0 24 24" width="75" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="none"/>
-      <path d="M11 6c1.38 0 2.63.56 3.54 1.46L12 10h6V4l-2.05 2.05C14.68 4.78 12.93 4 11 4c-3.53 0-6.43 2.61-6.92 6H6.1c.46-2.28 2.48-4 4.9-4zm5.64 9.14c.66-.9 1.12-1.97 1.28-3.14H15.9c-.46 2.28-2.48 4-4.9 4-1.38 0-2.63-.56-3.54-1.46L10 12H4v6l2.05-2.05C7.32 17.22 9.07 18 11 18c1.55 0 2.98-.51 4.14-1.36L20 21.49 21.49 20l-4.85-4.86z"/>
-    </svg></h1>
+    <h1>Culture Find<i class="material-icons icon-homepage">&#xE8FA;</i></h1>
     <div class="forms">
       <form id="signup" class="form-left">
         <h3>Sign up!</h3>
@@ -41,6 +38,7 @@
         <input type="password" name="user[passwordConfirmation]">
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
+            <br>
             <button type="submit" value="Sign Up!" class="btn btn-default">Sign Up!</button>
           </div>
         </div>
@@ -83,30 +81,30 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Culture Find</a>
+          <a class="navbar-brand" href="#">Culture Find<i class="material-icons icon-loggedin">&#xE8FA;</i></a>
         </div>
         <form class="navbar-form navbar-left">
           <div class="form-group">
             <label class="checkbox-inline"><input type="checkbox" name="category" value="museum" checked>Museums</label>
             <label class="checkbox-inline"><input type="checkbox" name="category" value="art_gallery" checked>Art Galleries</label>
-              <label class="checkbox-inline"><input type="checkbox" name="category" value="subway_station" checked>Tube Station</label>
+            <label class="checkbox-inline"><input type="checkbox" name="category" value="subway_station" checked>Tube Station</label>
           </div>
           <button type="button" class="btn btn-default" onclick="getUncheckedBoxes()">Submit</button>
           <button type="button" class="btn btn-default" id="load-more">Load More</button>
         </form>
       </div>
-        <!-- Collect the nav links, forms, and other content for toggling  -->
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="logout" href="#">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
+      <!-- Collect the nav links, forms, and other content for toggling  -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="logout" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div id="map-canvas"></div>
   </section>
   <footer>
-  Culture Find by RAAH &#169;
-</footer>
+    Culture Find by RAAH &#169;
+  </footer>
 </body>
 </html>

@@ -302,7 +302,7 @@ function getToken(){
 function removeToken(){
   return window.localStorage.clear();
 }
-
+// added after project deadline
 function mapSetup() {
   const canvas = document.getElementById('map-canvas');
   window.map = new google.maps.Map(canvas, mapOptions);
@@ -313,7 +313,7 @@ function mapSetup() {
   window.service = new google.maps.places.PlacesService(window.map);
   window.service.nearbySearch(request, nearByCallback);
 }
-
+// added after project deadline
 function nearByCallback(results, status, pagination){
   if (status === google.maps.places.PlacesServiceStatus.OK){
     console.log(results.length);
@@ -335,7 +335,7 @@ function nearByCallback(results, status, pagination){
     });
   }
 }
-
+// added after project deadline
 function createMarker(place) {
   var icon;
   if (place.types.indexOf('museum') > -1) {
@@ -368,7 +368,7 @@ function removeMarkers(removeTypes){
     });
   });
 }
-
+// added after project deadline
 function getDetailsCallback(place, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK){
     console.log(place.formatted_address);
@@ -423,6 +423,7 @@ function addInfoWindow(place, marker) {
     map.setCenter(marker.getPosition());
   });
 }
+// added after project deadline
 function getUncheckedBoxes(){
   var checkBoxes = document.getElementsByName('category');
   var uncheckedBoxes = [];
@@ -437,6 +438,9 @@ function getUncheckedBoxes(){
 
 // Style the info windows
 
-// Write read me file
+// fix nav bar i.e logout button!
 
-// fix nav bar
+// BUGS THAT NEED FIXING ASAP!
+
+//images on the info windows don't work all a sudden randomly.
+// the load more button stops working after the first three clicks using it even after you log out, then back in.
