@@ -1,5 +1,6 @@
 $(start);
 
+var numClicks = 1;
 var map;
 var infoWindow;
 var google = window.google;
@@ -249,6 +250,9 @@ function start() {
 function loggedInState() {
   $('.loggedOut').hide();
   $('.loggedIn').show();
+  document.getElementById('load-more').disabled = false;
+  numClicks = 1;
+  markers = [];
   mapSetup();
 }
 
@@ -316,26 +320,23 @@ function mapSetup() {
 // added after project deadline
 function nearByCallback(results, status, pagination){
   if (status === google.maps.places.PlacesServiceStatus.OK){
-    console.log(results.length);
+    //console.log(results.length);
     for(var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-      console.log(results[i]);
+      //console.log(results[i]);
     }
   }
-  var numClicks = 1;
-  if (pagination.hasNextPage){
+  if (pagination && pagination.hasNextPage){
     var moreButton = document.getElementById('load-more');
     moreButton.addEventListener('click',function(){
-      if (numClicks === 2){
-        moreButton.disabled = true;
-      } else {
-        numClicks++;
-      }
       pagination.nextPage();
+      if (markers.length >= 60 ){
+        moreButton.disabled = true;
+      }
     });
   }
 }
-// added after project deadline
+// updated after project deadline
 function createMarker(place) {
   var icon;
   if (place.types.indexOf('museum') > -1) {
@@ -347,16 +348,29 @@ function createMarker(place) {
   if (place.types.indexOf('subway_station') > -1) {
     icon = 'images/station.png';
   }
-  const marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
+    placeId: place.place_id,
     position: place.geometry.location,
     map: map,
     animation: google.maps.Animation.DROP,
     icon: icon,
     types: place.types
   });
-  markers.push(marker);
-
+  if (!markerExists(marker.placeId)){
+    markers.push(marker);
+  } else {
+    console.log('place already exists');
+  }
   addInfoWindow(place, marker);
+  console.log(markers.length);
+}
+function markerExists(placeId){
+  for (var i = 0; i < markers.length; i++) {
+    if (markers[i].placeId === placeId){
+      return true;
+    }
+  }
+  return false;
 }
 function removeMarkers(removeTypes){
   markers.map(function(marker){
@@ -368,10 +382,10 @@ function removeMarkers(removeTypes){
     });
   });
 }
-// added after project deadline
+// updated after project deadline
 function getDetailsCallback(place, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK){
-    console.log(place.formatted_address);
+    //console.log(place.formatted_address);
   }
 }
 
@@ -379,7 +393,6 @@ function addInfoWindow(place, marker) {
   google.maps.event.addListener(marker, 'click', () => {
     if (typeof infoWindow !== 'undefined') infoWindow.close();
     if (place.opening_hours){
-
       var openNow;
       if (place.opening_hours.open_now) {
         openNow = 'Yes';
@@ -399,6 +412,7 @@ function addInfoWindow(place, marker) {
           return ('<i class="material-icons">brush</i>');
       }
     });
+    //style images for info window here
     var iconsSet = new Set(place.iconsList);
     place.iconsList = [...iconsSet];
     var imgUrl = typeof place.photos !== 'undefined'? place.photos[0].getUrl({'maxWidth': 100,'maxHeight': 100}):'';
@@ -432,15 +446,14 @@ function getUncheckedBoxes(){
       uncheckedBoxes.push(checkBoxes[i].value);
   }
   removeMarkers(uncheckedBoxes);
-  console.log(uncheckedBoxes);
+  //console.log(uncheckedBoxes);
 }
 
 
 // Style the info windows
 
-// fix nav bar i.e logout button!
+// fix nav bar i.e logout button!/ visibility
 
 // BUGS THAT NEED FIXING ASAP!
 
-//images on the info windows don't work all a sudden randomly.
 // the load more button stops working after the first three clicks using it even after you log out, then back in.
